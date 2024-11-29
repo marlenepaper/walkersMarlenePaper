@@ -9,7 +9,7 @@
 
 
     <string name="loginbutton">Login</string>
-    <string name="email">Email</string>
+    <string name="user">User</string>
     <string name="password">Password</string>
 
 

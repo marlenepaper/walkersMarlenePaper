@@ -27,7 +27,7 @@ public class Register extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        TextInputLayout registerUsernameTIL = findViewById(R.id.registerEmailTIL);
+        TextInputLayout registerUsernameTIL = findViewById(R.id.registerUserTIL);
         TextInputLayout registerPasswordTIL = findViewById(R.id.registerPasswordTIL);
         TextInputLayout registerPasswordConfirmTIL = findViewById(R.id.registerPasswordConfirmTIL);
         Button registerButton = findViewById(R.id.registerButton);
@@ -39,18 +39,26 @@ public class Register extends AppCompatActivity {
                 String userPassword = String.valueOf(registerPasswordTIL.getEditText().getText());
                 String userPasswordCheck = String.valueOf(registerPasswordConfirmTIL.getEditText().getText());
 
-                if (!userPassword.equals(userPasswordCheck)) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Tus contraseñas no coinciden", Toast.LENGTH_SHORT);
-                    toast.show();
+                if (userName.isEmpty() || userPassword.isEmpty() || userPasswordCheck.isEmpty()) {
+                    Toast.makeText(Register.this, "Todos los campos son obligatorios.", Toast.LENGTH_SHORT).show();
+                } else if (userName.length() < 3) {
+                    Toast.makeText(Register.this, "El nombre de usuario debe tener al menos 3 caracteres.", Toast.LENGTH_SHORT).show();
+                }  else if (userPassword.length() < 6) {
+                    Toast.makeText(Register.this, "La contraseña debe tener al menos 6 caracteres.", Toast.LENGTH_SHORT).show();
+                } else if (!userPassword.equals(userPasswordCheck)) {
+                    Toast.makeText(Register.this, "Las contraseñas no coinciden.", Toast.LENGTH_SHORT).show();
                 } else {
+
                     SharedPreferences preferences = getSharedPreferences("Usuario", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("userName", userName);
                     editor.putString("userPassword", userPassword);
                     editor.apply();
+
+                    Toast.makeText(Register.this, "Registro exitoso.", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
         });
-
     }
 }
