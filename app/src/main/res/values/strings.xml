@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">walkers</string>
+    <string name="developer">©MARLENEPAPER</string>
+
+    <string name="welcome">Welcome Back</string>
+    <string name="login">Login to your Walkers account</string>
+    <string name="forgot"><u>Forgot password?</u></string>
+    <string name="donthave">Don’t have an account? <u>Sign Up</u></string>
+
+
+    <string name="loginbutton">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+
+    <string name="createYour">Create your account</string>
+    <string name="createDescription">Create an account by filling your info bellow</string>
+    <string name="confirmInput">Create your account</string>
+    <string name="createbutton">Confirm password</string>
+    <string name="terms">By creating an account you agree to
+our Terms of Service and Privacy Policy</string>
+    <string name="already">Already have an account? <u>Login</u></string>
+</resources>
